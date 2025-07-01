@@ -32,16 +32,7 @@ const Skills = () => {
         }
       ]
     },
-    {
-      title: "Databases",
-      skills: [
-        { 
-          name: "MongoDB", 
-          icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg",
-          bgColor: "bg-green-500"
-        }
-      ]
-    },
+    // Removed the "Databases" category
     {
       title: "Tools & Platforms",
       skills: [
