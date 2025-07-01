@@ -77,7 +77,6 @@ const Skills = () => {
   return (
     <section id="skills" className="min-h-screen bg-white text-gray-900 py-20">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900">
             My Skills
@@ -87,23 +86,19 @@ const Skills = () => {
           </p>
         </div>
 
-        {/* Skills Categories */}
         <div className="space-y-12">
           {skillCategories.map((category, categoryIndex) => (
             <div key={categoryIndex} className="mb-12">
-              {/* Category Title */}
               <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-8">
                 {category.title}
               </h3>
 
-              {/* Skills Grid */}
               <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-7 gap-6">
                 {category.skills.map((skill, skillIndex) => (
                   <div
                     key={skillIndex}
                     className="group flex flex-col items-center space-y-3 transition-all duration-300 hover:scale-110"
                   >
-                    {/* Skill Icon Container */}
                     <div className="relative">
                       <div className="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center group-hover:bg-gray-200 transition-all duration-300 shadow-lg border border-gray-200">
                         <img
@@ -111,22 +106,18 @@ const Skills = () => {
                           alt={skill.name}
                           className="w-8 h-8 transition-all duration-300"
                           onError={(e) => {
-                            // Fallback if icon doesn't load
                             e.target.style.display = 'none';
                             e.target.nextSibling.style.display = 'flex';
                           }}
                         />
-                        {/* Fallback text icon */}
                         <div className="hidden w-8 h-8 items-center justify-center text-gray-600 font-bold text-sm">
                           {skill.name.charAt(0)}
                         </div>
                       </div>
                       
-                      {/* Hover effect ring */}
                       <div className="absolute inset-0 rounded-full border-2 border-transparent group-hover:border-gray-400 transition-all duration-300"></div>
                     </div>
 
-                    {/* Skill Name */}
                     <span className="text-sm text-gray-600 text-center font-medium group-hover:text-gray-900 transition-colors duration-300">
                       {skill.name}
                     </span>
@@ -137,7 +128,6 @@ const Skills = () => {
           ))}
         </div>
 
-        {/* Bottom Section */}
         <div className="mt-20 text-center">
           <div className="bg-gradient-to-r from-purple-600 to-blue-500 rounded-xl p-8 text-white">
             <h3 className="text-2xl font-bold mb-4">

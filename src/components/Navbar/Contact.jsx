@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Mail, Linkedin, Github } from 'lucide-react';
+import { Mail, Linkedin, Github, MapPin } from 'lucide-react';
 import emailjs from 'emailjs-com';
 
 const Contact = () => {
@@ -25,20 +25,19 @@ const Contact = () => {
       return;
     }
 
-    // EmailJS configuration
     const templateParams = {
-      name: 'Sahil',              // Your name for the greeting
-      time: new Date().toLocaleString(), // Current timestamp
-      from_name: formData.name,    // Visitor's name
-      email: formData.email,       // Visitor's email (matches your template)
-      message: formData.message    // Visitor's message
+      name: 'Sahil',
+      time: new Date().toLocaleString(),
+      from_name: formData.name,
+      email: formData.email,
+      message: formData.message
     };
 
     emailjs.send(
-      'service_an6h33w',     // Replace with your EmailJS service ID
-      'template_t4op5nb',    // Replace with your EmailJS template ID
+      'service_an6h33w',
+      'template_t4op5nb',
       templateParams,
-      'ofa2bLE90lMFGO26E'      // Replace with your EmailJS public key
+      'ofa2bLE90lMFGO26E'
     )
     .then((response) => {
       alert('Message sent successfully! Thank you for your message! I\'ll get back to you soon.');
@@ -50,7 +49,6 @@ const Contact = () => {
     });
   };
 
-  // Direct Gmail compose link
   const handleEmailClick = () => {
     const email = 'sahilpasha759153@gmail.com';
     const subject = 'Hello Sahil - Portfolio Contact';
@@ -78,6 +76,11 @@ const Contact = () => {
       label: 'GitHub',
       href: 'https://github.com/sahilpasha20',
       isEmail: false
+    },
+    {
+      icon: MapPin,
+      label: 'Bangalore, India',
+      isLocation: true
     }
   ];
 
@@ -85,14 +88,13 @@ const Contact = () => {
     <section id="contact" className="py-20 bg-gray-50 relative">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-900">
-          Get In Touch - Contact Me
+           Contact Me
         </h2>
         
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          {/* Contact Info */}
           <div>
             <h3 className="text-2xl font-semibold mb-4 text-gray-900">
-              Let's work together - Get in touch
+              Get in touch
             </h3>
             
             <div className="space-y-4">
@@ -104,11 +106,23 @@ const Contact = () => {
                     <button
                       key={index}
                       onClick={link.action}
-                      className="flex items-center gap-3 text-blue-600 hover:text-blue-700 transition-colors w-full text-left"
+                      className="flex items-center gap-3 text-gray-700 hover:text-gray-900 transition-colors w-full text-left"
                     >
                       <Icon size={20} />
                       <span className="font-medium">{link.label}</span>
                     </button>
+                  );
+                }
+                
+                if (link.isLocation) {
+                  return (
+                    <div
+                      key={index}
+                      className="flex items-center gap-3 text-gray-700"
+                    >
+                      <Icon size={20} />
+                      <span className="font-medium">{link.label}</span>
+                    </div>
                   );
                 }
                 
@@ -118,7 +132,7 @@ const Contact = () => {
                     href={link.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-3 text-blue-600 hover:text-blue-700 transition-colors"
+                    className="flex items-center gap-3 text-gray-700 hover:text-gray-900 transition-colors"
                   >
                     <Icon size={20} />
                     <span className="font-medium">{link.label}</span>
@@ -128,7 +142,6 @@ const Contact = () => {
             </div>
           </div>
 
-          {/* Contact Form */}
           <div className="bg-white p-8 rounded-xl shadow-lg">
             <div className="space-y-6">
               <div>
