@@ -6,21 +6,17 @@ const Hero = () => {
   const fullText = "Hi, I'm Sahil";
 
   useEffect(() => {
-    if (window.innerWidth > 768) {
-      let index = 0;
-      const timer = setInterval(() => {
-        if (index < fullText.length) {
-          setDisplayText(fullText.slice(0, index + 1));
-          index++;
-        } else {
-          clearInterval(timer);
-        }
-      }, 100);
+    let index = 0;
+    const timer = setInterval(() => {
+      if (index < fullText.length) {
+        setDisplayText(fullText.slice(0, index + 1));
+        index++;
+      } else {
+        clearInterval(timer);
+      }
+    }, 100);
 
-      return () => clearInterval(timer);
-    } else {
-      setDisplayText(fullText);
-    }
+    return () => clearInterval(timer);
   }, []);
 
   const scrollToSection = (id) => {
